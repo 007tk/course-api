@@ -2,17 +2,17 @@ package io.tikane.springboot.courseapi.topic;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class TopicService {
 
-    private List<Topic> topics = Arrays.asList(
+    private List<Topic> topics = new ArrayList<>(Arrays.asList(
             new Topic("spring","Spring Framework", "Spring Framework Description"),
             new Topic("java","Core java", "Core java Description"),
-            new Topic("javascript","Javascript Framework", "Javascript Framework Description"),
-            new Topic("C#","C# Framework","C# Framework Description"));
+            new Topic("javascript","Javascript Framework", "Javascript Framework Description")));
 
     public List<Topic> getTopics() {
         return topics;
@@ -23,4 +23,7 @@ public class TopicService {
     }
 
 
+    public void addTopic(Topic topic) {
+        topics.add(topic);
+    }
 }
